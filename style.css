@@ -22,3 +22,95 @@ section {
 #gallery .row > * {
   padding: 0;
 }
+
+/* My Figure Section */
+.figure-box {
+  position: relative;
+  background-color: #5d3fd3;
+  border-radius: 10px;
+  height: 500px;
+  transform-style: preserve-3d;
+}
+
+.figure-box::before {
+  content: 'MY';
+  position: absolute;
+  color: #fff;
+  font-size: 6em;
+  font-weight: bold;
+  font-style: italic;
+  top: 30px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  transition: 0.5s;
+  opacity: 0;
+}
+
+.figure-box:hover::before {
+  opacity: 0.2;
+}
+
+.figure-box::after {
+  content: 'FIGURE';
+  position: absolute;
+  color: #fff;
+  font-size: 4.2em;
+  font-weight: bold;
+  font-style: italic;
+  top: 360px;
+  left: 450px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  transition: 0.5s;
+  opacity: 0;
+}
+
+.figure-box:hover::after {
+  opacity: 0.2;
+}
+
+.figure-name {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  color: #e6e6fa;
+  text-align: center;
+  font-size: 2em;
+  opacity: 0;
+  transform: translate3d(0, 0, 50px);
+  transition: 0.5s;
+}
+
+.figure-box:hover .figure-name {
+  top: 20px;
+  opacity: 1;
+}
+
+.figure-detail-button {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate3d(-50%, 0, 100px);
+  opacity: 0;
+  transition: 0.5s;
+  z-index: 3;
+}
+
+.figure-box:hover .figure-detail-button {
+  opacity: 1;
+  bottom: 20px;
+}
+
+.figure-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -52%, 80px);
+  max-width: 350px;
+  transition: 0.5s;
+  z-index: 2;
+}
+
+.figure-box:hover .figure-img {
+  transform: translate3d(-50%, -52%, 100px) scale(1.2);
+}
