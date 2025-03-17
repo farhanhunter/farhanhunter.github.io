@@ -369,6 +369,16 @@ nav {
 .contact-item i {
     font-size: 1.5rem;
     color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+}
+
+.contact-item p,
+.contact-item a {
+    margin: 0;
+    line-height: 1.5;
 }
 
 .social-links {
