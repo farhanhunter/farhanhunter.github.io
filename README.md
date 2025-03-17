@@ -22,4 +22,4 @@ This is my personal website hosted using GitHub Pages.
 1. Clone this repository
 2. Make your desired changes
 3. Push to GitHub
-4. Your website will be automatically deployed to farhanhunter.github.io
+4. Your website will be automatically deployed to farhanhunter.GitHub.io
