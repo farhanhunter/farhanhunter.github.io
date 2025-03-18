@@ -45,34 +45,74 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Form submission handling (dummy implementation)
+    // Form submission handling using fetch API
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
 
             // Get form input values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-
-            // In a real application, you would send this data to a server
-            console.log('Form submitted with:', { name, email, message });
-
-            // Show success message (in a real app, do this after successful submission)
             const formButton = contactForm.querySelector('button[type="submit"]');
+            const resultDisplay = document.getElementById('result');
             const originalText = formButton.textContent;
-            formButton.textContent = 'Message Sent!';
-            formButton.style.backgroundColor = 'var(--success-color)';
 
-            // Reset form
-            contactForm.reset();
+            // Show loading state
+            formButton.disabled = true;
+            formButton.textContent = 'Sending...';
 
-            // Reset button after delay
-            setTimeout(() => {
-                formButton.textContent = originalText;
-                formButton.style.backgroundColor = '';
-            }, 3000);
+            // Prepare form data
+            const formData = new FormData(contactForm);
+            const object = {};
+            formData.forEach((value, key) => {
+                object[key] = value;
+            });
+
+            // Send the data using fetch API
+            fetch('https://script.google.com/macros/s/AKfycbxt38PMbkQeul3NggLwwqjZ2MrAL3PcIEZEfRBZH5pkoR2U-EYo-kNGYTUDv57Dte-89g/exec', {
+                method: 'POST',
+                mode: 'no-cors',
+                cache: 'no-cache',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                redirect: 'follow',
+                body: JSON.stringify(object)
+            })
+                .then(() => {
+                    // Show success message
+                    formButton.textContent = 'Message Sent!';
+                    formButton.style.backgroundColor = 'var(--success-color)';
+                    resultDisplay.style.display = 'block';
+                    resultDisplay.textContent = 'Thank you for your message. I will get back to you soon.';
+                    resultDisplay.style.color = 'var(--success-color)';
+
+                    // Reset form
+                    contactForm.reset();
+
+                    // Reset button after delay
+                    setTimeout(() => {
+                        formButton.disabled = false;
+                        formButton.textContent = originalText;
+                        formButton.style.backgroundColor = '';
+                        resultDisplay.style.display = 'none';
+                    }, 3000);
+                })
+                .catch(error => {
+                    // Show error message
+                    console.error('Error:', error);
+                    formButton.textContent = 'Error!';
+                    formButton.style.backgroundColor = '#dc3545';
+                    resultDisplay.style.display = 'block';
+                    resultDisplay.textContent = 'Something went wrong. Please try again later.';
+                    resultDisplay.style.color = '#dc3545';
+
+                    // Reset button after delay
+                    setTimeout(() => {
+                        formButton.disabled = false;
+                        formButton.textContent = originalText;
+                        formButton.style.backgroundColor = '';
+                    }, 3000);
+                });
         });
     }
 
