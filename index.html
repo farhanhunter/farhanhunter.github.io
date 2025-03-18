@@ -169,7 +169,7 @@
                     <a href="https://x.com/Magang404" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a>
                 </div>
             </div>
-            <form class="contact-form">
+            <form class="contact-form" target="hiddenFrame" onsubmit="submitForm(); return false;">
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" required>
@@ -184,6 +184,7 @@
                 </div>
                 <button type="submit" class="btn primary">Send Message</button>
             </form>
+            <iframe name="hiddenFrame" style="display:none;"></iframe>
         </div>
     </div>
 </section>
@@ -194,6 +195,31 @@
     </div>
 </footer>
 
+<script>
+    function submitForm() {
+        const form = document.querySelector('.contact-form');
+        const formButton = form.querySelector('button[type="submit"]');
+        const originalText = formButton.textContent;
+
+        // Prepare data for submission
+        const data = new FormData(form);
+
+        // Create a hidden iframe submission
+        form.action = 'https://script.google.com/macros/s/AKfycbxt38PMbkQeul3NggLwwqjZ2MrAL3PcIEZEfRBZH5pkoR2U-EYo-kNGYTUDv57Dte-89g/exec';
+        form.method = 'POST';
+
+        // Show success message
+        formButton.textContent = 'Message Sent!';
+        formButton.style.backgroundColor = 'var(--success-color)';
+
+        // Reset form after submission complete
+        setTimeout(() => {
+            form.reset();
+            formButton.textContent = originalText;
+            formButton.style.backgroundColor = '';
+        }, 3000);
+    }
+</script>
 <script src="script.js"></script>
 </body>
 </html>
