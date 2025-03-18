@@ -169,7 +169,7 @@
                     <a href="https://x.com/Magang404" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a>
                 </div>
             </div>
-            <form class="contact-form" id="contactForm" method="POST">
+            <form class="contact-form" id="contactForm" method="POST" action="https://script.google.com/macros/s/AKfycbxt38PMbkQeul3NggLwwqjZ2MrAL3PcIEZEfRBZH5pkoR2U-EYo-kNGYTUDv57Dte-89g/exec">
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" required>
@@ -182,8 +182,8 @@
                     <label for="message">Message</label>
                     <textarea id="message" name="message" rows="5" required></textarea>
                 </div>
-                <button type="submit" class="btn primary">Send Message</button>
-                <p id="result" style="margin-top: 1rem; display: none;"></p>
+                <button type="submit" id="submitBtn" class="btn primary">Send Message</button>
+                <p id="formStatus" style="margin-top: 1rem; display: none;"></p>
             </form>
             <iframe name="hiddenFrame" id="hiddenFrame" style="display:none;"></iframe>
         </div>
@@ -198,3 +198,55 @@
 <script src="script.js"></script>
 </body>
 </html>
+
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const form = this;
+        const submitBtn = document.getElementById('submitBtn');
+        const formStatus = document.getElementById('formStatus');
+        const originalBtnText = submitBtn.textContent;
+
+        // Disable button and show loading state
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+
+        // Get form data
+        const formData = new FormData(form);
+
+        // Convert form data to URL parameters
+        const url = form.action + '?' + new URLSearchParams(formData).toString();
+
+        // Create a hidden iframe to handle the form submission
+        const hiddenFrame = document.createElement('iframe');
+        hiddenFrame.style.display = 'none';
+        document.body.appendChild(hiddenFrame);
+
+        // Handle the successful submission
+        hiddenFrame.onload = function() {
+            submitBtn.textContent = 'Message Sent!';
+            submitBtn.style.backgroundColor = 'var(--success-color)';
+            formStatus.style.display = 'block';
+            formStatus.textContent = 'Thank you for your message!';
+            formStatus.style.color = 'var(--success-color)';
+            form.reset();
+
+            // Reset button after delay
+            setTimeout(() => {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
+                submitBtn.style.backgroundColor = '';
+                formStatus.style.display = 'none';
+            }, 3000);
+
+            // Remove the iframe after a delay
+            setTimeout(() => {
+                document.body.removeChild(hiddenFrame);
+            }, 5000);
+        };
+
+        // Submit using the iframe
+        hiddenFrame.src = url;
+    });
+</script>
