@@ -46,7 +46,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Form submission handling using fetch API
     const contactForm = document.querySelector('.contact-form');
-    console.log("Halo Ges");
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
