@@ -1,4 +1,3 @@
-// Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile navigation toggle
     const hamburger = document.querySelector('.hamburger');
@@ -47,14 +46,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Form submission handling using fetch API
     const contactForm = document.querySelector('.contact-form');
+    console.log("Halo Ges");
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
 
             // Get form input values
             const formButton = contactForm.querySelector('button[type="submit"]');
-            const resultDisplay = document.getElementById('result');
+            const resultDisplay = document.getElementById('formStatus');
             const originalText = formButton.textContent;
+
+            // Ensure resultDisplay exists
+            if (!resultDisplay) {
+                console.error('Result display element not found');
+                return;
+            }
 
             // Show loading state
             formButton.disabled = true;
@@ -144,24 +150,24 @@ document.addEventListener('DOMContentLoaded', function() {
             transform: translateY(30px);
             transition: opacity 0.8s ease, transform 0.8s ease;
         }
-        
+
         .animate-on-scroll.in-view {
             opacity: 1;
             transform: translateY(0);
         }
-        
+
         .project-card {
             transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.8s ease;
         }
-        
+
         .project-card.animate-on-scroll {
             transform: translateY(50px);
         }
-        
+
         .project-card.in-view {
             transform: translateY(0);
         }
-        
+
         .project-card:hover {
             transform: translateY(-10px);
         }
