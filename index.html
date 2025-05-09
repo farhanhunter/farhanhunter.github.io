@@ -4,44 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Farhan Adi Saputra - Personal Website</title>
-    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </head>
 <body>
 <header>
-    <div class="container">
-        <nav>
-            <div class="logo">
-                <a href="#home">
-                    <img src="https://res.cloudinary.com/dpikh72ub/image/upload/v1726474279/user_profiles/dt80ehr6ywizu7usghok.jpg" alt="Farhan Hunter">
-                </a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <button id="theme-toggle" aria-label="Toggle dark mode">
-                <i class="fas fa-moon"></i>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <img src="https://res.cloudinary.com/dpikh72ub/image/upload/v1726474279/user_profiles/dt80ehr6ywizu7usghok.jpg" alt="Farhan Hunter" class="rounded-circle" style="width: 45px; height: 45px;">
+            </a>
+            <button class="navbar-toggler hamburger" type="button" aria-label="Toggle navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </button>
-            <div class="hamburger">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
+            <div class="collapse navbar-collapse nav-links">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+                <button id="theme-toggle" class="btn btn-outline-primary ms-3" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
             </div>
-        </nav>
-    </div>
+        </div>
+    </nav>
 </header>
 
-<section id="home" class="hero">
-    <div class="container">
+<section id="home" class="hero d-flex align-items-center">
+    <div class="container text-center">
         <div class="hero-content">
-            <h1>Hello, I'm <span class="highlight">Farhan Adi Saputra</span></h1>
-            <p class="tagline">Spring Boot Developer | Backend | Tech Enthusiast</p>
-            <div class="cta-buttons">
-                <a href="#projects" class="btn primary">View My Work</a>
-                <a href="#contact" class="btn secondary">Contact Me</a>
+            <h1>Hello, I'm <span class="text-primary">Farhan Adi Saputra</span></h1>
+            <p class="lead text-muted">Spring Boot Developer | Backend | Tech Enthusiast</p>
+            <div class="d-flex justify-content-center gap-2 mt-4">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-outline-primary">Contact Me</a>
             </div>
         </div>
     </div>
@@ -52,9 +54,8 @@
         <h2 class="section-title">About Me</h2>
         <div class="about-content">
             <div class="about-text">
-                <p>Welcome to my personal website! I'm passionate about creating server side, client side, functional websites and applications.</p>
+                <p>Welcome to my personal website! I'm passionate about creating server side, client side, functional websites, and applications.</p>
                 <p>With expertise in HTML, CSS, JavaScript, Java, Kotlin, and SpringBoot, I love turning ideas into reality through code and processing data.</p>
-
                 <h3>My Skills</h3>
                 <div class="skills">
                     <div class="skill">
@@ -79,113 +80,84 @@
     </div>
 </section>
 
-<section id="projects" class="projects">
+<section id="projects" class="projects py-5">
     <div class="container">
-        <h2 class="section-title">My Projects</h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="https://res.cloudinary.com/dpikh72ub/image/upload/f_auto,q_auto,w_800,c_fill,g_auto,e_sharpen,r_10/v1742190789/ywerr1z3z5q6yg0hr9yy.png" alt="MoXa Mitra" loading="lazy">
+        <h2 class="text-center mb-4">My Projects</h2>
+        <div class="row g-4">
+            <!-- Project 1 -->
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <img src="https://res.cloudinary.com/dpikh72ub/image/upload/f_auto,q_auto,w_800,c_fill,g_auto,e_sharpen,r_10/v1742190789/ywerr1z3z5q6yg0hr9yy.png" class="card-img-top" alt="MoXa Mitra">
+                    <div class="card-body">
+                        <h5 class="card-title">MoXa Mitra</h5>
+                        <p class="card-text">Moxa adalah mobile platform dari Astra Financial...</p>
+                        <a href="#" class="btn btn-primary btn-sm">View Project</a>
+                    </div>
                 </div>
-                <h3>MoXa Mitra</h3>
-                <p>Moxa adalah mobile platform dari Astra Financial yang ditujukan untuk mendukung kebutuhan finansial pengguna.
-                    Di Moxa, kami mengintegrasikan berbagai produk dan layanan keuangan yang andal dalam satu aplikasi tunggal.
-                    Anda dapat mengakses berbagai layanan keuangan terbaik yang disediakan oleh perusahaan-perusahaan di bawah Astra Financial dan bermitra dengan Moxa.
-                    Kami berusaha sebaik mungkin untuk memudahkan, cerdas, dan aman bagi Anda untuk memilih produk yang sesuai dengan kebutuhan Anda.
-                </p>
-                <div class="project-tags">
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
-                    <span>Spring Boot</span>
-                    <span>Java</span>
-                    <span>Postgresql</span>
-                    <span>Git VCS</span>
-                </div>
-                <a href="#" class="btn small">View Project</a>
             </div>
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="https://res.cloudinary.com/dpikh72ub/image/upload/f_auto,q_auto,w_800,c_fill,g_auto,e_sharpen,r_10/v1742193347/tv6bre0rlrntafkiwnqg.png" alt="Project Two" loading="lazy">
+            <!-- Project 2 -->
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <img src="https://res.cloudinary.com/dpikh72ub/image/upload/f_auto,q_auto,w_800,c_fill,g_auto,e_sharpen,r_10/v1742193347/tv6bre0rlrntafkiwnqg.png" class="card-img-top" alt="CMS MoXa Mitra">
+                    <div class="card-body">
+                        <h5 class="card-title">CMS MoXa Mitra</h5>
+                        <p class="card-text">CMS MoXa Mitra adalah sistem manajemen konten... </p>
+                        <a href="#" class="btn btn-primary btn-sm">View Project</a>
+                    </div>
                 </div>
-                <h3>CMS MoXa Mitra</h3>
-                <p>CMS MoXa Mitra adalah sistem manajemen konten yang dirancang untuk mengatur konten dan melihat data yang masuk melalui aplikasi mobile.
-                    Di CMS MoXa Mitra, kami menyediakan berbagai fitur untuk memudahkan pengelolaan konten dan integrasi data dari berbagai sumber.
-                    Anda dapat mengakses dan mengelola data yang disimpan di database dengan mudah dan efisien.
-                    Kami berusaha sebaik mungkin untuk menyediakan platform yang cerdas, aman, dan mudah digunakan untuk kebutuhan manajemen konten Anda.
-                </p>
-                <div class="project-tags">
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>Javascript</span>
-                    <span>Spring Boot</span>
-                    <span>Java</span>
-                    <span>Postgresql</span>
-                    <span>Git VCS</span>
-                </div>
-                <a href="#" class="btn small">View Project</a>
             </div>
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="https://res.cloudinary.com/dpikh72ub/image/upload/f_auto,q_auto,w_800,c_fill,g_auto,e_sharpen,r_10/v1742193000/dxc4jetrskcivofxuy2e.png" alt="Project Three" loading="lazy">
+            <!-- Project 3 -->
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <img src="https://res.cloudinary.com/dpikh72ub/image/upload/f_auto,q_auto,w_800,c_fill,g_auto,e_sharpen,r_10/v1742193000/dxc4jetrskcivofxuy2e.png" class="card-img-top" alt="Backend API MoXa Mitra">
+                    <div class="card-body">
+                        <h5 class="card-title">Backend API MoXa Mitra</h5>
+                        <p class="card-text">Backend API MoXa Mitra adalah jembatan komunikasi...</p>
+                        <a href="#" class="btn btn-primary btn-sm">View Project</a>
+                    </div>
                 </div>
-                <h3>Backend API MoXa Mitra</h3>
-                <p>
-                    Backend API MoXa Mitra adalah jembatan komunikasi antara aplikasi mobile dan database server.
-                    API ini memungkinkan aplikasi mobile mengirim dan menerima data dengan aman dan terstruktur.
-                    Kami telah membangun sistem yang dapat memproses ribuan permintaan secara bersamaan,
-                    mengautentikasi pengguna, mengelola hak akses, serta menyediakan respon cepat untuk pengalaman aplikasi yang lancar.
-                    Dengan arsitektur yang teroptimasi, API ini tidak hanya menjamin keamanan data pengguna,
-                    tetapi juga memungkinkan pengembangan fitur-fitur baru dengan lebih mudah dan efisien di masa mendatang.
-                </p>
-                <div class="project-tags">
-                    <span>Spring Boot</span>
-                    <span>Java</span>
-                    <span>Postgresql</span>
-                    <span>Git VCS</span>
-                </div>
-                <a href="#" class="btn small">View Project</a>
             </div>
         </div>
     </div>
 </section>
 
-<section id="contact" class="contact">
+<section id="contact" class="contact py-5">
     <div class="container">
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="contact-content">
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <a href="mailto:farhan.saputra@berijalan.net">farhan.saputra@berijalan.net</a>
+        <h2 class="text-center mb-4">Get In Touch</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="mb-3">
+                    <i class="fas fa-envelope text-primary"></i>
+                    <a href="mailto:farhan.saputra@berijalan.net" class="d-block">farhan.saputra@berijalan.net</a>
                 </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <a href="https://maps.app.goo.gl/eHFUfy6kJeLUWbXa8" target="_blank" rel="noopener">East Java, Indonesia</a>
+                <div class="mb-3">
+                    <i class="fas fa-map-marker-alt text-primary"></i>
+                    <a href="https://maps.app.goo.gl/eHFUfy6kJeLUWbXa8" target="_blank" class="d-block">East Java, Indonesia</a>
                 </div>
-                <div class="social-links">
-                    <a href="https://github.com/farhanhunter" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/farhan-adi-saputra-359732206/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://x.com/Magang404" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a>
+                <div class="d-flex gap-2">
+                    <a href="https://github.com/farhanhunter" target="_blank" class="btn btn-outline-secondary btn-sm"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/farhan-adi-saputra-359732206/" target="_blank" class="btn btn-outline-secondary btn-sm"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://x.com/Magang404" target="_blank" class="btn btn-outline-secondary btn-sm"><i class="fa-brands fa-x-twitter"></i></a>
                 </div>
             </div>
-            <form class="contact-form" id="contactForm" method="POST" action="https://script.google.com/macros/s/AKfycbxt38PMbkQeul3NggLwwqjZ2MrAL3PcIEZEfRBZH5pkoR2U-EYo-kNGYTUDv57Dte-89g/exec">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                </div>
-                <button type="submit" id="submitBtn" class="btn primary">Send Message</button>
-                <p id="formStatus" style="margin-top: 1rem; display: none;"></p>
-            </form>
-            <iframe name="hiddenFrame" id="hiddenFrame" style="display:none;"></iframe>
+            <div class="col-md-8">
+                <form id="contactForm" method="POST" action="https://script.google.com/macros/s/AKfycbxt38PMbkQeul3NggLwwqjZ2MrAL3PcIEZEfRBZH5pkoR2U-EYo-kNGYTUDv57Dte-89g/exec">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" id="name" name="name" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" id="submitBtn" class="btn btn-primary">Send Message</button>
+                    <p id="formStatus" class="mt-3" style="display: none;"></p>
+                </form>
+            </div>
         </div>
     </div>
 </section>
