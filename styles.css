@@ -241,7 +241,7 @@ nav {
 }
 
 .hamburger {
-    display: none;
+    display: flex;
     flex-direction: column;
     cursor: pointer;
 }
@@ -368,6 +368,11 @@ footer p {
     }
 
     /* Mobile menu styles */
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+    }
     .nav-links {
         position: fixed;
         top: 70px;
@@ -383,17 +388,10 @@ footer p {
         opacity: 0;
         box-shadow: 0 5px 10px var(--shadow-color);
     }
-
     .nav-links.active {
         height: auto;
         padding: 2rem 0;
         opacity: 1;
-    }
-
-    .hamburger {
-        display: none;
-        flex-direction: column;
-        cursor: pointer;
     }
 
     .bar {
@@ -414,12 +412,6 @@ footer p {
 
     .hamburger.active .bar:nth-child(3) {
         transform: translateY(-9px) rotate(-45deg);
-    }
-
-    @media (max-width: 768px) {
-        .hamburger {
-            display: flex;
-        }
     }
 }
 
